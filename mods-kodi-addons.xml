@@ -3,26 +3,26 @@
 <addon
     id="script.mtvguide"
     name="m-TVGuide [COLOR gold][B]EPG[/B][/COLOR]"
-    version="9.8.6"
-    provider-name="Mods-kodi">
+    version="9.9.639"
+    provider-name="mariusz89b">
   <requires>
     <import addon="xbmc.addon" version="17.0.0"/>
-	<import addon="script.module.inputstreamhelper" />
-	<import addon="script.module.simplejson" />
-	<import addon="script.module.requests" />
-	<import addon="script.module.dateutil" />
-	<import addon="script.module.beautifulsoup4" />
-	<import addon="script.module.routing" />
-	<import addon="script.module.iso8601" />
-	<import addon="script.module.pytz" />
-	<import addon="script.module.six" />
-	<import addon="script.module.future" />
-	<import addon="script.module.urllib3" />
+	<import addon="script.module.inputstreamhelper" version="0.5.9"/>
+	<import addon="script.module.simplejson" version="3.16.1"/>
+	<import addon="script.module.requests" version="2.22.0"/>
+	<import addon="script.module.dateutil" version="2.8.1"/>
+	<import addon="script.module.beautifulsoup4" version="4.6.2"/>
+	<import addon="script.module.routing" version="0.2.3"/>
+	<import addon="script.module.iso8601" version="0.1.12"/>
+	<import addon="script.module.pytz" version="2014.2"/>
+	<import addon="script.module.six" version="1.13.0"/>
+	<import addon="script.module.future" version="0.17.1"/>
+	<import addon="script.module.urllib3" version="1.25.6"/>
   </requires>
   <extension point="xbmc.python.script" library="addon.py">
     <provides>video</provides>
   </extension>
-  <extension point="xbmc.service" library="service.py" start="login"/>
+  <extension point="xbmc.service" library="service.py" start="serverHTTP.py"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">m-TVGuide EPG</summary>
 	<description lang="da_DK">Elektronisk programguide til Kodi.</description>
@@ -41,8 +41,206 @@
     <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 and MIT LICENSE.</license>
     <forum>https://github.com/Mariusz89B/script.mtvguide/discussions</forum>
 	<website>https://github.com/Mariusz89B/script.mtvguide</website>
-    <source>m-TVGuide © 2013 - 2021</source>
-    <news>v9.8.6 (2022-01-04)
+    <source>m-TVGuide © 2013 - 2022</source>
+    <news>v9.9.639 (2023-12-03)
+- Fixed urllib3 dependency.
+
+v9.9.638 (2023-04-04)
+- Fixed catchup default setting for playing/downloading content longer than 1 hour.
+- Added offset and timezone adjustment for archive.
+
+v9.9.637 (2023-01-05)
+- EPG redraw fixes.
+- Decreased interval for auto EPG update.
+- Other fixes.
+- Improved playlist mapping.
+
+v9.9.636 (2022-12-28)
+- Updated language files.
+- Bug fixes.
+
+v9.9.635 (2022-12-27)
+- Timezone setting fixes.
+
+v9.9.634 (2022-12-26)
+- Hotfix.
+
+v9.9.633 (2022-12-26)
+- Improved playlist mapping.
+
+v9.9.632 (2022-12-11)
+- Improved stream quality for services CMore and Telia Play.
+- Other fixes.
+
+v9.9.631 (2022-11-20)
+- Added setting for guide reinitializing to context menu.
+- Fixed guide reinitializing.
+- Fixed timezone error.
+
+v9.9.630 (2022-11-12)
+- Fixed timezone error.
+
+v9.9.629 (2022-11-01)
+- Fixed timezone error.
+- Updated requests headers.
+
+v9.9.628 (2022-08-28)
+- Fixed prog +/- channel switch.
+- Bug fixes.
+
+v9.9.627 (2022-08-23)
+- Fixed timebar update.
+- Fixed Telia Play and CMore catchup session timeout.
+- Fixed catchup return while playing.
+- Bug fixes.
+
+v9.9.626 (2022-08-14)
+- Fixed recording naming issues.
+- Fixed dialog loop on catchup wrong type.
+
+v9.9.625 (2022-07-15)
+- Updated translations.
+- Improved configuration tutorial.
+
+v9.9.624 (2022-07-11)
+- Fixed show Video OSD on touch tap.
+- Fixed recording filename input return action.
+- Bug fixes.
+
+v9.9.623 (2022-07-10)
+- Fixed recording filename match.
+
+v9.9.622 (2022-07-10)
+- Hotfix.
+
+v9.9.621 (2022-07-09)
+- Bug fixes.
+- Fixed memory leaks.
+
+v9.9.620 (2022-07-08)
+- Added filename input for downloads and recordings.
+- Other improvements.
+- Bug fixes.
+
+v9.9.619 (2022-07-07)
+- Added overview guide window shourtcut.
+- Database optimizations.
+
+v9.9.618 (2022-07-02)
+- Hotfix.
+
+v9.9.617 (2022-07-02)
+- Added overview guide window during playback.
+- Fixed mktime overflow error.
+- Optimized performance.
+
+v9.9.616 (2022-06-25)
+- Fixed cached playlists channel mismatching.
+
+v9.9.615 (2022-06-20)
+- Bug fixes.
+- Fixed categories sortings.
+- Fixed playlist channel matching.
+- Optimized performance.
+
+v9.9.614 (2022-06-16)
+- Fixed service PlayerPL login.
+- Added option to manually assign adult and vod EPG URL.
+- Other fixes.
+
+v9.9.613 (2022-06-11)
+- Fixed playlists load error.
+
+v9.9.612 (2022-06-10)
+- Hotfix.
+
+v9.9.611 (2022-06-06)
+- Fixed login for services C More and Telia Play.
+
+v9.9.610 (2022-06-05)
+- Hotfix.
+
+v9.9.609 (2022-06-05)
+- Fixed exception error while adding missing channels.
+- Fixed grouping error.
+- Fixed login for services C More and Telia Play.
+
+v9.9.608 (2022-05-26)
+- Hotfix.
+
+v9.9.607 (2022-05-26)
+- Updated translations.
+- Bug fixes.
+
+v9.9.606 (2022-05-22)
+- Optimized performance.
+- Bug fixes.
+
+v9.9.605 (2022-05-09)
+- Fixed channel listing for service CMore.
+- Bug fixes.
+
+v9.9.604 (2022-05-05)
+- Added support for TheMovieDb extended information.
+- Fixed service CMore.
+
+v9.9.603 (2022-04-24)
+- Fixed service Polsat GO.
+- Updated translations.
+
+v9.9.602 (2022-04-22)
+- Fixed channel access for service Polsat GO BOX.
+- Other improvements.
+
+v9.9.601 (2022-04-18)
+- Bug fixes.
+- Other improvements.
+
+v9.9.6 (2022-04-15)
+- Hotfix.
+
+v9.9.5 (2022-04-13)
+- Added catchup for service TVPGO.
+- Fixed service PlayerPL parsing error.
+- Fixed encodings.
+- Optimized performance.
+- Added playlist caching.
+- Fixed local timezone.
+- Bug fixes.
+
+v9.9.4 (2022-03-02)
+- Fixed error while using record services.
+- Fixed encoding issues Python 2.7.
+
+v9.9.3 (2022-02-27)
+- Optimized performance.
+
+v9.9.2 (2022-02-16)
+- Updated service TVP GO.
+- Updated headers.
+- Bug fixes.
+
+v9.9.1 (2022-02-13)
+- Fixed crash while downloading on CoreELEC and LibreELEC OS.
+- Other improvements.
+
+v9.9.0 (2022-02-12)
+- Fixed RSS feed.
+
+v9.8.9 (2022-02-11)
+- Added option to adjust to local time, for universal timezone. 
+- Added Debug mode.
+- Add channel to group shortcut.
+- Optimized performance.
+
+v9.8.8 (2022-01-24)
+- Bug fixes.
+
+v9.8.7 (2022-01-12)
+- Added InputStream Adaptive shortcut in settings.
+- Optimized performance.
+
+v9.8.6 (2022-01-04)
 - Fixed EPG table refresh on record completion.
 - Fixed service Polsat GO access groups.
 - Added WP Pilot DRM support.
@@ -416,30 +614,487 @@ v9.0.0 (2020-06-21)
     <assets>
         <icon>icon.png</icon>
         <fanart>fanart.jpg</fanart>
-        <screenshot>screenshots/screenshot-01.jpg</screenshot>
-		<screenshot>screenshots/screenshot-02.jpg</screenshot>
-		<screenshot>screenshots/screenshot-03.jpg</screenshot>
+        <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+		<screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+		<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
     </assets>
   </extension>
 </addon>
 
-<addon id="repository.mods-kodi" name="mods-kodi Repository" version="1.0.1" provider-name="mods-kodi.pl">
-	<extension point="xbmc.addon.repository" name="mods-kodi Repository">
-		<info compressed="false">https://raw.githubusercontent.com/Mariusz89B/mods-kodi/master/mods-kodi-addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/Mariusz89B/mods-kodi/master/mods-kodi-addons.xml.md5</checksum>
-		<datadir zip="true">https://github.com/Mariusz89B/mods-kodi/raw/master/</datadir>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Repozytorium mods-kodi.pl</summary>
-		<summary lang="pl">Repository mods-kodi.pl</summary>
-		<description lang="en">For more information visit [COLOR cyan][B]mods-kodi.pl[/B][/COLOR] site.</description>
-		<description lang="pl">Zapraszamy na [COLOR cyan][B]mods-kodi.pl[/B][/COLOR]</description>
-		<platform>all</platform>
-		<language></language>
-		<website>http://mods-kodi.pl</website>
-		<forum>http://mods-kodi.pl/forum</forum>
-		<source>https://github.com/Mariusz89B/mods-kodi</source>
-		<email>site@mods-kodi.pl</email>
-	</extension>
+<addon id="plugin.video.cmore" name="C More" version="1.1.7" provider-name="mariusz89b">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.inputstreamhelper" version="0.2.4"/>
+    <import addon="script.module.requests" version="2.22.0"/>
+	<import addon="script.module.six" version="1.14.0"/>
+	<import addon="script.module.iso8601" version="0.1.12"/>
+	<import addon="script.module.pytz" version="2019.3.0"/>
+	<import addon="script.module.future" version="0.17.1"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="player.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">C More</summary>
+	<description lang="da_DK">Se indhold fra C More.</description>
+    <description lang="en_GB">Watch content from C More.</description>
+	<description lang="nb_NO">Se innhold fra C More.</description>
+	<description lang="sv_SE">Se innehåll från C More.</description>
+    <disclaimer lang="en_GB">This add-on is unoffical and is not endorsed or supported by any of the services provided in any way. Any trademarks used belong to their owning companies and organisations.</disclaimer>
+    <language>en sv</language>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 and MIT LICENSE.</license>
+    <source>https://github.com/Mariusz89B/plugin.video.cmore</source>
+    <news>v1.1.7 (2023-03-12)
+- Bug fixes.
+
+v1.1.6 (2022-09-11)
+- Revised starttime information for events.
+- Fixed start for live events.
+
+v1.1.5 (2022-09-10)
+- Fixed timestamps. 
+- Fixed kids section.
+
+v1.1.4 (2022-08-27)
+- Fixed subscription content.
+- Added date to upcoming events.
+
+v1.1.3 (2022-08-08)
+- Code refactoring.
+
+v1.1.2 (2022-08-06)
+- Added Live TV.
+- Added catchup function for M3U playlist.
+- Other fixes.
+
+v1.1.1 (2022-07-10)
+- Fixed memory leak.
+
+v1.1.0 (2022-07-09)
+- Bug fixes.
+
+v1.0.9 (2022-07-08)
+- Hot fix.
+
+v1.0.8 (2022-07-08)
+- Bug fixes.
+
+v1.0.7 (2022-06-16)
+- Fixed live tv play from beginning error.
+
+v1.0.6 (2022-06-12)
+- Fixes.
+
+v1.0.5 (2022-06-11)
+- Fixed encoding for playlist generator.
+
+v1.0.4 (2022-06-11)
+- Added M3U playlist generator.
+- Code refactoring.
+
+v1.0.3 (2022-06-10)
+- Hotfix.
+
+v1.0.2 (2022-06-10)
+- Added days for live channels.
+- Code refactoring.
+
+v1.0.1 (2022-06-09)
+- Added new categories for sports and kids section.
+
+v1.0 (2022-06-08)
+- Production release.
+
+v0.9 (2022-06-06)
+- Fixed token refresh.
+
+v0.8 (2022-06-04)
+- Fixes.
+
+v0.7 (2022-06-04)
+- Fixed login.
+
+v0.6 (2022-05-27)
+- Added xbmc.Player callbacks.
+
+v0.5 (2022-05-21)
+- Bug fixes.
+
+v0.4 (2022-05-20)
+- Added IA shortcut to settings.
+
+v0.3 (2022-05-20)
+- Added section upcoming sports.
+
+v0.2 (2022-05-20)
+- Code refactoring.
+
+v0.1.3 (2022-05-20)
+- Fixed childlock.
+
+v0.1.2 (2022-05-20)
+- Fixes.
+
+v0.1.1 (2022-05-19)
+- Added childlock.
+
+v0.1 (2022-05-18)
+- Added kids section.
+
+v0.0.9 (2022-05-18)
+- Code refactoring.
+- Added sport section.
+
+v0.0.8 (2022-05-16)
+- Added profiles.
+	
+v0.0.7 (2022-05-16)
+- Bug fixes.
+
+v0.0.6 (2022-05-16)
+- Added search function.
+
+v0.0.5 (2022-05-15)
+- Added VOD Series.
+
+v0.0.4 (2022-05-14)
+- Added VOD.
+
+v0.0.3 (2022-05-13)
+- Fixes.
+
+v0.0.2 (2022-05-13)
+- Code refactoring.
+- Added extended information to context menu.
+- Added catchup dot. 
+
+v0.0.1 (2022-05-12)
+- Initial version.
+    </news>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>resources/fanart.jpg</fanart>
+        <banner>resources/banner.jpg</banner>
+        <clearlogo>resources/clearlogo.png</clearlogo>
+        <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+		<screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+		<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+    </assets>
+  </extension>
+</addon>
+
+<addon id="plugin.video.teliaplay" name="Telia Play" version="1.1.9" provider-name="mariusz89b">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.inputstreamhelper" version="0.2.4"/>
+    <import addon="script.module.requests" version="2.22.0"/>
+	<import addon="script.module.six" version="1.14.0"/>
+	<import addon="script.module.iso8601" version="0.1.12"/>
+	<import addon="script.module.pytz" version="2019.3.0"/>
+	<import addon="script.module.future" version="0.17.1"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="player.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Telia Play</summary>
+	<description lang="da_DK">Se indhold fra Telia Play.</description>
+    <description lang="en_GB">Watch content from Telia Play.</description>
+	<description lang="nb_NO">Se innhold fra Telia Play.</description>
+	<description lang="sv_SE">Se innehåll från Telia Play.</description>
+    <disclaimer lang="en_GB">This add-on is unoffical and is not endorsed or supported by any of the services provided in any way. Any trademarks used belong to their owning companies and organisations.</disclaimer>
+    <language>en sv</language>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 and MIT LICENSE.</license>
+    <source>https://github.com/Mariusz89B/plugin.video.teliaplay</source>
+    <news>v1.1.9 (2023-03-12)
+- Bug fixes.
+
+v1.1.8 (2022-09-11)
+- Revised starttime information for events.
+- Fixed start for live events.
+
+v1.1.7 (2022-09-10)
+- Fixed timestamps.
+
+v1.1.6 (2022-08-27)
+- Fixed subscription content.
+- Added date to upcoming events.
+
+v1.1.5 (2022-08-08)
+- Code refactoring.
+
+v1.1.4 (2022-08-06)
+- Fixes.
+
+v1.1.3 (2022-08-05)
+- Added catchup function for M3U playlist.
+
+v1.1.2 (2022-08-04)
+- Added Live TV.
+- Other fixes.
+
+v1.1.1 (2022-07-30)
+- Fixed series categories.
+- Performance optimizations.
+- Other fixes.
+
+v1.1.0 (2022-07-10)
+- Fixes.
+
+v1.0.9 (2022-07-10)
+- Fixed memory leak.
+
+v1.0.8 (2022-07-09)
+- Bug fixes.
+
+v1.0.7 (2022-07-08)
+- Hotfix.
+	
+v1.0.6 (2022-07-08)
+- Bug fixes.
+
+v1.0.5 (2022-07-02)
+- Login fix.
+
+v1.0.4 (2022-06-13)
+- Added Playservices in series category.
+- Other fixes.
+
+v1.0.3 (2022-06-13)
+- Removed empty categories.
+
+v1.0.2 (2022-06-12)
+- Fixes.
+
+v1.0.1 (2022-06-11)
+- Fixed encoding for playlist generator.
+
+v1.0 (2022-06-11)
+- Added M3U playlist generator.
+- Code refactoring.
+
+v0.5 (2022-06-10)
+- Hotfix.
+
+v0.4 (2022-06-09)
+- Code refactoring.
+	
+v0.3 (2022-06-08)
+- Hotfix.
+
+v0.2 (2022-06-06)
+- Fixed missing programs.
+
+v0.1 (2022-06-06)
+- Fixed token refresh.
+- Code refactoring.
+
+v0.0.4 (2022-06-04)
+- Fixes.
+
+v0.0.3 (2022-06-04)
+- Fixed login, updated URL.
+
+v0.0.2 (2022-06-02)
+- Login fixes.
+
+v0.0.1 (2022-06-01)
+- Initial version.
+    </news>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>resources/fanart.jpg</fanart>
+        <banner>resources/banner.jpg</banner>
+        <clearlogo>resources/clearlogo.png</clearlogo>
+        <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+		<screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+		<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+    </assets>
+  </extension>
+</addon>
+
+<addon id="plugin.video.viaplay" version="2.4.5" name="Viaplay" provider-name="mariusz89b, emilsvennesson, heppen-dev">
+  <requires>
+    <import addon="script.module.requests" version="2.9.1" />
+    <import addon="script.module.iso8601" version="0.1.11" />
+    <import addon="script.module.inputstreamhelper" version="0.3.3" />
+    <import addon="script.module.routing" version="0.2.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="login.py"/>
+  <extension point="xbmc.addon.metadata">
+    <description lang="da_DK">Se indhold fra Viaplay.</description>
+    <description lang="en_GB">Watch content from Viaplay.</description>
+    <description lang="fi_FI">Katso sisältöä Viaplay.</description>
+    <description lang="nb_NO">Se innhold fra Viaplay.</description>
+	<description lang="nl_NL">Bekijk inhoud van Viaplay.</description>
+    <description lang="sv_SE">Titta på innehåll från Viaplay.</description>
+    <description lang="pl_PL">Oglądaj treści z Viaplay.</description>
+    <description lang="lt_LT">Žiūrėkite turinį iš Viaplay.</description>
+	<disclaimer lang="en_GB">This add-on is unoffical and is not endorsed or supported by any of the services provided in any way. Any trademarks used belong to their owning companies and organisations, it is also required to have a subscription to Viaplay.</disclaimer>
+	<language>da en fi nb nl sv pl lt</language>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 and MIT LICENSE.</license>
+    <source>https://github.com/Mariusz89B/plugin.video.viaplay</source>
+    <news>v2.4.5 (2023-04-17)
+- Bug fixes.
+
+v2.4.4 (2023-03-12)
+- Fixed bug when returning from search.
+- Added option to enable/disable synchronization. 
+
+v2.4.3 (2023-03-06)
+- Added profile selector.
+- Added supported countries.
+- Added synchronization with watched list.
+
+v2.4.2 (2023-02-24)
+- Added playcount for sport events.
+
+v2.4.1 (2023-02-21)
+- Add to my list option.
+- Added login option with username and password.
+- Fixed watched markings for sports events.
+- Fixed playback errors.
+
+v2.4.0 (2023-02-12)
+- Fixed watched marking.
+- Fixed playback errors.
+- Other fixes.
+
+v2.3.9 (2023-01-27)
+- Fix live.
+
+v2.3.8 (2023-01-10)
+- Added new Viaplay arts.
+
+v2.3.7 (2023-01-10)
+- Fixes.
+
+v2.3.6 (2023-01-01)
+- Added autologin on Kodi startup.
+
+v2.3.5 (2022-07-28)
+- Fixed live channels. 
+
+v2.3.4 (2022-04-23)
+- Fixed py2 support.
+
+v2.3.3 (2022-04-05)
+- Fixed live tv channels and popular sports in .se. @heppen-dev 
+
+v2.3.2 (2022-03-27)
+- Fixed sports series event listing. @heppen-dev
+
+v2.3.1 (2022-03-24)
+- Add NL country support.
+- Fixed popular sport tiles. 
+
+v2.3.0 (2022-02-17)
+- Added search history function.
+
+v2.2.9 (2022-02-16)
+- Sport category fix. 
+
+v2.2.8 (2022-01-28)
+- Kids category updates.
+
+v2.2.7 (2022-01-27) 
+- Fixed logout. 
+
+v2.2.6 (2022-01-27)
+- Fixed login error. 
+
+v2.2.5 (2022-01-25)
+- Fixes.
+
+v2.2.4 (2022-01-23)
+- Fixed external authorization. 
+
+v2.2.3 (2021-11-09)
+- Added viaplay.lt. 
+
+v2.2.2 (2021-10-24)
+- Fixed plot. 
+
+v2.2.1 (2021-10-06)
+- Fixed category sport matches abbreviations. 
+
+v2.2.0 (2021-09-29)
+- Fixed subtitles. 
+
+v2.1.9 (2021-09-27)
+- Fixed product categories.
+
+v2.1.8 (2021-08-17 )
+- Fixed html import error. 
+
+v2.1.7 (2021-08-11)
+- Fixed M3U playlist generator. 
+
+v2.1.6 (2021-08-09)
+- Added M3U playlist generator. 
+
+v2.1.5 (2021-08-08)
+- Added setting "Hide previously aired Live-Tv programmes".
+
+v2.1.4 (2021-08-07)
+- Added watched and purchased categories for viaplay.pl
+- Fixed category error. 
+
+v.2.1.3 (2021-08-05)
+- Added viaplay.pl
+- Added Polish translation. @hevet
+- Added Swedish translation. @Mariusz89B
+    </news>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>resources/fanart.jpg</fanart>
+        <banner>resources/banner.jpg</banner>
+        <clearlogo>resources/clearlogo.png</clearlogo>
+        <screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+		<screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+		<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+    </assets>
+  </extension>
+</addon>
+
+<addon id="repository.mods-kodi" name="mods-kodi Repository" version="1.0.2" provider-name="mods-kodi.pl">
+  <extension point="xbmc.addon.repository" name="mods-kodi Repository">
+    <dir>
+	  <info compressed="false">https://raw.githubusercontent.com/Mariusz89B/mods-kodi/master/mods-kodi-addons.xml</info>
+	  <checksum>https://raw.githubusercontent.com/Mariusz89B/mods-kodi/master/mods-kodi-addons.xml.md5</checksum>
+	  <datadir zip="true">https://github.com/Mariusz89B/mods-kodi/raw/master/</datadir>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">m-TVGuide repository</summary>
+    <description lang="da_DK">Elektronisk programguide til Kodi.</description>
+    <description lang="de_DE">Elektronischer Programmführer für Kodi.</description>
+    <description lang="en_GB">Electronic program guide for Kodi.</description>
+    <description lang="fr_FR">Guide électronique des programmes pour Kodi.</description>
+    <description lang="hr_HR">Elektronički programski vodič za Kodi.</description>
+    <description lang="nl_NL">Elektronische programmagids voor Kodi.</description>
+    <description lang="nb_NO">Elektronisk programguide for Kodi.</description>
+    <description lang="pl_PL">Elektroniczny program telewizyjny dla Kodi.</description>
+    <description lang="sv_SE">Elektronisk programguide för Kodi.</description>
+    <disclaimer lang="en_GB">This add-on is unoffical and is not endorsed or supported by any of the services provided in any way. Any trademarks used belong to their owning companies and organisations.</disclaimer>
+    <disclaimer lang="pl_PL">Wtyczka nie jest oficjalna koncesjonowanego dostawy, oraz nie jest przez niego zatwierdzona i wspierana. Wszelkie użyte znaki handlowe należą do firm i organizacji podmiotu koncesjonowanego.</disclaimer>
+    <language>dk de en fr hr nl no pl se</language>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 and MIT LICENSE.</license>
+    <forum>https://github.com/Mariusz89B/script.mtvguide/discussions</forum>
+    <website>https://github.com/Mariusz89B/script.mtvguide</website>
+    <source>m-TVGuide © 2013 - 2022</source>
+    <assets>
+	  <icon>icon.png</icon>
+    </assets>
+  </extension>
 </addon>
 </addons>
